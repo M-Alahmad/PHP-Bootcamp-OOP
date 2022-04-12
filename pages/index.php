@@ -5,7 +5,7 @@
 <p class="lead">Das hier ist die Startseite des Blogs.</p>
 
 <?php
-  $postsRepsitory = new App\Post\PostsRepository($pdo);
+  $postsRepsitory = $container->getPostsRepository();
   $res = $postsRepsitory->fetchPosts();
 ?>
 

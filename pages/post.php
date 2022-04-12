@@ -4,10 +4,11 @@
 <h1>Post.php</h1>
 
 <?php
-$postsRepsitory = new App\Post\PostsRepository($pdo);
+$postsRepsitory = $container->getPostsRepository();
 $id = $_GET['id'];
 $post = $postsRepsitory->fetchPost($id);
  ?>
+
 
 <div class="panel panel-default">
     <div class="panel-heading">
