@@ -1,4 +1,11 @@
-<?php include("../init.php"); ?>
+<?php
+include("../init.php");
+
+$postsController = $container->make("postsController");
+$postsController->index();
+
+?>
+<?php /*
 <?php include("elements/header.php"); ?>
 
 <h1>Startseite des Blogs</h1>
@@ -7,6 +14,7 @@
 <?php
   $postsRepsitory = $container->make("postsRepository");
   $res = $postsRepsitory->fetchPosts();
+
 ?>
 
 <ul>
@@ -20,3 +28,4 @@
 </ul>
 
 <?php include("elements/footer.php"); ?>
+*/ ?>

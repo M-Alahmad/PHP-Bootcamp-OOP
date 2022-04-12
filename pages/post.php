@@ -1,14 +1,19 @@
-<?php include("../init.php"); ?>
+<?php
+include("../init.php");
+
+$postsController = $container->make("postsController");
+$postsController->show();
+?>
+<?php /*
 <?php include("elements/header.php"); ?>
 
 <h1>Post.php</h1>
 
 <?php
-$postsRepsitory = $container->getPostsRepository();
+$postsRepsitory = $container->make("postsRepository");
 $id = $_GET['id'];
 $post = $postsRepsitory->fetchPost($id);
  ?>
-
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -20,3 +25,4 @@ $post = $postsRepsitory->fetchPost($id);
 </div>
 
 <?php include("elements/footer.php"); ?>
+*/ ?>
