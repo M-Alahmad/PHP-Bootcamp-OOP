@@ -3,8 +3,9 @@
 namespace App\Core;
 
 use PDO;
-use App\Post\PostsRepository;
+use PDOException;
 use App\Post\PostsController;
+use App\Post\PostsRepository;
 
 class Container
 {
@@ -26,11 +27,16 @@ class Container
         );
       },
       'pdo' => function() {
-        $pdo = new PDO(
-          'mysql:host=localhost;dbname=bootcamp;charset=utf8',
-          'root',
-          ''
-        );
+        try {
+          $pdo = new PDO(
+            'mysql:host=localhost;dbname=bootcamp;charset=utf8',
+            'root',
+            ''
+          );
+        } catch (PDOException $e) {
+          echo "Verbindung zur Datenbank fehlgeschlagen";
+          die();
+        }
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         return $pdo;
       }
