@@ -3,9 +3,10 @@
 namespace App\Core;
 
 use PDO;
+use Exception;
 use PDOException;
-use App\Post\PostsController;
 use App\Post\PostsRepository;
+use App\Post\PostsController;
 
 class Container
 {
@@ -66,9 +67,9 @@ class Container
       return $this->pdo;
     }
     $this->pdo = new PDO(
-      'mysql:host=localhost;dbname=bootcamp;charset=utf8',
-      'root',
-      ''
+      'mysql:host=localhost;dbname=blog;charset=utf8',
+      'blog',
+      'TX4LQBEzfZfVqnLV'
     );
     $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     return $this->pdo;
