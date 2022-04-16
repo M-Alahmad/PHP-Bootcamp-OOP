@@ -7,9 +7,13 @@ use App\Core\AbstractController;
 class PostsController extends AbstractController
 {
 
-  public function __construct(PostsRepository $postsRepository)
+  public function __construct(
+    PostsRepository $postsRepository,
+    CommentsRepository $commentsRepository
+    )
   {
       $this->postsRepository = $postsRepository;
+      $this->commentsRepository = $commentsRepository;
   }
 
   public function index()
@@ -25,9 +29,11 @@ class PostsController extends AbstractController
   {
       $id = $_GET['id'];
       $post = $this->postsRepository->find($id);
+      $comments = $this->commentsRepository->allByPost($id);
 
       $this->render("post/show", [
-        'post' => $post
+        'post' => $post,
+        'comments' => $comments
       ]);
   }
 }
