@@ -28,6 +28,10 @@ class PostsController extends AbstractController
   public function show()
   {
       $id = $_GET['id'];
+      if (isset($_POST['content'])) {
+        $content = $_POST['content'];
+        $this->commentsRepository->insertForPost($id, $content);
+    }
       $post = $this->postsRepository->find($id);
       $comments = $this->commentsRepository->allByPost($id);
 

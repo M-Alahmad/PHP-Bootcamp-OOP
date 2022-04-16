@@ -20,4 +20,15 @@
     <?php endforeach; ?>
 </ul>
 
+
+<form method="post" action="post?id=<?php echo $post['id'];?>">
+    <textarea name="content" class="form-control"></textarea>
+    <br />
+    <input type="submit" value="Kommentar hinzufügen" class="btn btn-primary" />
+</form>
+
+<br />
+<br />
+<br />
+
 <?php include __DIR__ . "/../layout/footer.php"; ?>
